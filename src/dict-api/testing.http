@@ -1,0 +1,4 @@
+POST https://api-ng.pons.com/pons-mf-resultpage/api/translate
+content-type: application/json
+
+{"language1":"de","language2":"en","sourceLanguage":"de","query":"dich","dictionaryHint":"deen","locale":"de"}

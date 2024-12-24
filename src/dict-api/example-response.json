@@ -1,0 +1,700 @@
+{
+  "type": "dictionary",
+  "translation": "you",
+  "dictionary": {
+    "result": [
+      {
+        "source": 0,
+        "label": "im PONS Wörterbuch",
+        "content": [
+          {
+            "lang": "de",
+            "hits": [
+              {
+                "primary_entry": {
+                  "type_hint": "entry",
+                  "id": "Edeen139869",
+                  "opendict": false,
+                  "signature_id": 0,
+                  "order_key": 0,
+                  "resources": 0,
+                  "roms": [
+                    {
+                      "type_hint": "rom",
+                      "id": "Rdeen139872",
+                      "numeral": "I",
+                      "headword": "dich",
+                      "headword_normalized": "dich",
+                      "headword_full": "dich  <span class=\"phonetics\">[dɪç]</span> <span class=\"wordclass\"><acronym title=\"Pronomen\">PRON</acronym></span> <span class=\"info\"><acronym title=\"Person, Personal-\">Pers</acronym></span>",
+                      "wordclass": "Pronomen",
+                      "wordclass_untranslated": "PRONOUN",
+                      "arabs": [
+                        {
+                          "type_hint": "arab",
+                          "id": "Adeen139873",
+                          "arab_type": 0,
+                          "header": "dich <span class=\"reference_qualification\"><acronym title=\"Akkusativ\">Akk</acronym> von</span> <span class=\"indirect_reference_RQ\"> du</span>",
+                          "translations": [
+                            {
+                              "type_hint": "translation",
+                              "id": "Tdeen139875",
+                              "translation_type": 1,
+                              "examples": 0,
+                              "source": "<strong class=\"headword\">dich</strong>",
+                              "target": "you"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type_hint": "rom",
+                      "id": "Rdeen139876",
+                      "numeral": "II",
+                      "headword": "dich",
+                      "headword_normalized": "dich",
+                      "headword_full": "dich  <span class=\"phonetics\">[dɪç]</span> <span class=\"wordclass\"><acronym title=\"Pronomen\">PRON</acronym></span> <span class=\"info\"><acronym title=\"reflexiv\">refl</acronym></span>",
+                      "wordclass": "Pronomen",
+                      "wordclass_untranslated": "PRONOUN",
+                      "arabs": [
+                        {
+                          "type_hint": "arab",
+                          "id": "Adeen139877",
+                          "arab_type": 0,
+                          "header": "",
+                          "translations": [
+                            {
+                              "type_hint": "translation",
+                              "id": "Tdeen139878",
+                              "translation_type": 1,
+                              "examples": 10,
+                              "source": "<strong class=\"headword\">dich</strong>",
+                              "target": "yourself"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "secondary_entries": [
+                  {
+                    "type_hint": "entry_reference",
+                    "id": "Edeen152148"
+                  }
+                ],
+                "type_hint": "entry_with_secondary_entries",
+                "opendict": false
+              },
+              {
+                "type_hint": "entry",
+                "id": "Edeen628972",
+                "opendict": false,
+                "signature_id": 0,
+                "order_key": 0,
+                "resources": 0,
+                "roms": [
+                  {
+                    "type_hint": "rom",
+                    "id": "Rdeen628973",
+                    "numeral": "",
+                    "headword": "Trimm-dich-Pfad",
+                    "headword_normalized": "Trimm-dich-Pfad",
+                    "headword_full": "Trimm-dich-Pfad <span class=\"flexion\">&lt;-(e)s, -e&gt;</span>  <span class=\"wordclass\"><acronym title=\"Substantiv\">SUBST</acronym></span> <span class=\"genus\"><acronym title=\"Maskulinum\">m</acronym></span>",
+                    "wordclass": "Nomen",
+                    "wordclass_untranslated": "NOUN",
+                    "arabs": [
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen628974",
+                        "arab_type": 0,
+                        "header": "",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen628977",
+                            "translation_type": 1,
+                            "examples": 1,
+                            "source": "<strong class=\"headword\">Trimm-dich-Pfad</strong>",
+                            "target": "keep-fit trail"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type_hint": "entry",
+                "id": "Edeen152148",
+                "opendict": false,
+                "signature_id": 0,
+                "order_key": 0,
+                "resources": 0,
+                "roms": [
+                  {
+                    "type_hint": "rom",
+                    "id": "Rdeen152149",
+                    "numeral": "",
+                    "headword": "du",
+                    "headword_normalized": "du",
+                    "headword_full": "du   <span class=\"flexion\">&lt;<span class=\"info\"><acronym title=\"Genitiv\">Gen</acronym></span> deiner, <span class=\"info\"><acronym title=\"Dativ\">Dat</acronym></span> dir, <span class=\"info\"><acronym title=\"Akkusativ\">Akk</acronym></span> dich&gt;</span>  <span class=\"phonetics\">[ˈdu:]</span> <span class=\"wordclass\"><acronym title=\"Pronomen\">PRON</acronym></span> <span class=\"info\"><acronym title=\"Person, Personal-\">Pers</acronym></span>",
+                    "wordclass": "Pronomen",
+                    "wordclass_untranslated": "PRONOUN",
+                    "arabs": [
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen152152",
+                        "arab_type": 0,
+                        "header": "1. du <span class=\"info\">2. <acronym title=\"Person\">Pers</acronym> <acronym title=\"Singular\">Sg</acronym></span>:",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152153",
+                            "translation_type": 1,
+                            "examples": 10,
+                            "source": "<strong class=\"headword\">du</strong>",
+                            "target": "you"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152154",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">he, <strong class=\"tilde\">du</strong> da!</span>",
+                            "target": "hey, you there!"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152155",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">\n               <strong class=\"tilde\">du</strong>, kann ich dich mal was fragen?</span>",
+                            "target": "listen, can I ask you something?"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152156",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">\n               <strong class=\"tilde\">du</strong>, der <strong class=\"tilde\">du</strong> es erlebt hast</span>",
+                            "target": "you, who have experienced it"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152157",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">\n               <strong class=\"tilde\">du</strong> bist es</span>",
+                            "target": "it&#39;s you"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152158",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">bist <strong class=\"tilde\">du</strong> das, Peter?</span>",
+                            "target": "is it you Peter?"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152159",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">mach <strong class=\"tilde\">du</strong> das doch gefälligst selber!</span>",
+                            "target": "do it yourself!"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152160",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">\n               <strong class=\"tilde\">du</strong>, kannst <strong class=\"tilde\">du</strong> mir mal helfen?</span>",
+                            "target": "hey, can you help me?"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152161",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">\n               <strong class=\"tilde\">du</strong>, ich muss jetzt aber gehen!</span>",
+                            "target": "look  <span class=\"target\">[<span class=\"or\"><acronym title=\"or\">or</acronym></span> listen]</span> , I have to go now!"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152162",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"grammatical_construction\">... und <strong class=\"tilde\">du?</strong></span>",
+                            "target": "what about you?"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152163",
+                            "translation_type": 1,
+                            "examples": 10,
+                            "source": "<span class=\"grammatical_construction\">\n               <strong class=\"tilde\">du</strong> ...!</span>",
+                            "target": "you ...!"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152164",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">\n               <strong class=\"tilde\">du</strong> Idiot!</span>",
+                            "target": "you idiot!"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152165",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"full_collocation\">mit <acronym title=\"jemandem\">jdm</acronym> per <strong class=\"tilde\">du</strong> sein</span>",
+                            "target": "to use the “du” form  <span class=\"target\">[<span class=\"or\"><acronym title=\"or\">or</acronym></span> familiar form of address]</span>  with <acronym title=\"somebody\">sb</acronym>"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152166",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"full_collocation\">\n               <strong class=\"tilde\">du</strong> [zu <acronym title=\"jemandem\">jdm</acronym>] sagen</span>",
+                            "target": "to use the “du” form  <span class=\"target\">[<span class=\"or\"><acronym title=\"or\">or</acronym></span> familiar form of address]</span>  with <acronym title=\"somebody\">sb</acronym>"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152167",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"idiom_proverb\">\n               <strong class=\"tilde\">du</strong>, <strong class=\"tilde\">du!</strong></span> <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>",
+                            "target": "watch it"
+                          }
+                        ]
+                      },
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen152168",
+                        "arab_type": 0,
+                        "header": "2. du <span class=\"style\"><acronym title=\"poetisch\">poet</acronym></span>:",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152169",
+                            "translation_type": 1,
+                            "examples": 10,
+                            "source": "<strong class=\"headword\">du</strong>",
+                            "target": "thou"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152170",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">sei mir gegrüßt, <strong class=\"tilde\">du</strong> meine Heimat/mein Vaterland!</span>",
+                            "target": "greetings, thou, my homeland/fatherland!"
+                          }
+                        ]
+                      },
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen152171",
+                        "arab_type": 0,
+                        "header": "3. du <span class=\"sense\">(man)</span>:",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152172",
+                            "translation_type": 1,
+                            "examples": 10,
+                            "source": "<strong class=\"headword\">du</strong>",
+                            "target": "you"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152173",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"example\">ob <strong class=\"tilde\">du</strong> willst oder nicht, ...</span>",
+                            "target": "whether you want to or not  <span class=\"target\">[<span class=\"or\"><acronym title=\"or\">or</acronym></span> like it or not]</span> , ..."
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type_hint": "entry",
+                "id": "Edeen419234",
+                "opendict": false,
+                "signature_id": 0,
+                "order_key": 0,
+                "resources": 0,
+                "roms": [
+                  {
+                    "type_hint": "rom",
+                    "id": "Rdeen419235",
+                    "numeral": "",
+                    "headword": "Mensch är·ge·re dich nicht",
+                    "headword_normalized": "Mensch ärgere dich nicht",
+                    "headword_full": "Mensch är<span class=\"separator\">·</span>ge<span class=\"separator\">·</span>re dich nicht <span class=\"flexion\">&lt;- - - -&gt;</span>  <span class=\"wordclass\"><acronym title=\"Substantiv\">SUBST</acronym></span> <span class=\"genus\"><acronym title=\"Neutrum\">nt</acronym></span> <span class=\"info\">kein <acronym title=\"Plural\">Pl</acronym></span> <span class=\"sense\">(Spiel)</span>",
+                    "wordclass": "Nomen",
+                    "wordclass_untranslated": "NOUN",
+                    "arabs": [
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen419236",
+                        "arab_type": 0,
+                        "header": "",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen419239",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<strong class=\"headword\">Mensch ärgere dich nicht</strong>",
+                            "target": "ludo <span class=\"region\"><acronym title=\"britisches Englisch\" class=\"Brit\">Brit</acronym></span>"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type_hint": "entry",
+                "id": "Edeen152174",
+                "opendict": false,
+                "signature_id": 0,
+                "order_key": 0,
+                "resources": 0,
+                "roms": [
+                  {
+                    "type_hint": "rom",
+                    "id": "Rdeen152175",
+                    "numeral": "",
+                    "headword": "Du",
+                    "headword_normalized": "Du",
+                    "headword_full": "Du <span class=\"flexion\">&lt;-[s], -[s]&gt;</span>  <span class=\"phonetics\">[ˈdu:]</span> <span class=\"wordclass\"><acronym title=\"Substantiv\">SUBST</acronym></span> <span class=\"genus\"><acronym title=\"Neutrum\">nt</acronym></span>",
+                    "wordclass": "Nomen",
+                    "wordclass_untranslated": "NOUN",
+                    "arabs": [
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen152176",
+                        "arab_type": 0,
+                        "header": "",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152179",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<strong class=\"headword\">Du</strong>",
+                            "target": "you"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152180",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<strong class=\"headword\">Du</strong>",
+                            "target": "“du”  <span class=\"explanation\">(familiar form of address)</span>"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen152181",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"full_collocation\"><acronym title=\"jemandem\">jdm</acronym> das <strong class=\"tilde\">Du</strong> anbieten</span>",
+                            "target": "to suggest that <acronym title=\"somebody\">sb</acronym> use the familiar form of address <span class=\"target\">[<span class=\"or\"><acronym title=\"or\">or</acronym></span> uses the “du” form]</span>"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen27568317",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"full_collocation\">mit <acronym title=\"jemandem\">jdm</acronym> auf <strong class=\"tilde\">Du</strong> und <strong class=\"tilde\">Du</strong> stehen</span> <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>",
+                            "target": "to be buddy-buddy with <acronym title=\"somebody\">sb</acronym> <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen27568318",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"full_collocation\">mit <acronym title=\"jemandem\">jdm</acronym> auf <strong class=\"tilde\">Du</strong> und <strong class=\"tilde\">Du</strong> stehen</span> <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>",
+                            "target": "to hobnob with <acronym title=\"somebody\">sb</acronym> <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>"
+                          },
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen27568319",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<span class=\"full_collocation\">mit <acronym title=\"jemandem\">jdm</acronym> auf <strong class=\"tilde\">Du</strong> und <strong class=\"tilde\">Du</strong> stehen</span> <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>",
+                            "target": "to be on familiar terms  <span class=\"target\">[<span class=\"or\"><acronym title=\"or\">or</acronym></span> on intimate footing]</span>  with <acronym title=\"somebody\">sb</acronym>"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type_hint": "entry",
+                "id": "Edeen29633274",
+                "opendict": true,
+                "signature_id": 0,
+                "order_key": 0,
+                "resources": 0,
+                "roms": [
+                  {
+                    "type_hint": "rom",
+                    "id": "Rdeen29633276",
+                    "numeral": "",
+                    "headword": "du",
+                    "headword_normalized": "du",
+                    "headword_full": "du    <span class=\"wordclass\"><acronym title=\"Pronomen\">PRON</acronym></span>",
+                    "wordclass": "Pronomen",
+                    "wordclass_untranslated": "PRONOUN",
+                    "arabs": [
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen29633277",
+                        "arab_type": 0,
+                        "header": "",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen29633278",
+                            "translation_type": 1,
+                            "examples": -1,
+                            "source": "und <strong class=\"tilde\">du?</strong>",
+                            "target": "how about you?"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type_hint": "translation",
+                "id": "Tdeen586692",
+                "translation_type": 1,
+                "examples": 0,
+                "source": "<span class=\"example\">spute dich!</span>",
+                "target": "hurry up!"
+              },
+              {
+                "type_hint": "translation",
+                "id": "Tdeen586693",
+                "translation_type": 1,
+                "examples": 0,
+                "source": "<span class=\"example\">spute dich!</span>",
+                "target": "look sharp!"
+              },
+              {
+                "type_hint": "translation",
+                "id": "Tdeen76009",
+                "translation_type": 1,
+                "examples": 0,
+                "source": "<span class=\"example\">was bedrückt dich?</span>",
+                "target": "what&#39;s troubling you?"
+              },
+              {
+                "type_hint": "translation",
+                "id": "Tdeen76010",
+                "translation_type": 1,
+                "examples": 0,
+                "source": "<span class=\"example\">was bedrückt dich?</span>",
+                "target": "what&#39;s up? <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>"
+              },
+              {
+                "type_hint": "translation",
+                "id": "Tdeen339283",
+                "translation_type": 1,
+                "examples": 0,
+                "source": "<span class=\"full_collocation\">du lachst dich kaputt!</span>",
+                "target": "what a laugh!"
+              }
+            ]
+          },
+          {
+            "lang": "en",
+            "hits": [
+              {
+                "type_hint": "translation",
+                "id": "Tdeen31697355",
+                "translation_type": 1,
+                "examples": -1,
+                "source": "mind your manners <span class=\"grammar SUBST\"><acronym title=\"Pluralsubstantiv\">Plsubst</acronym></span>",
+                "target": "benimm dich"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "source": 29635369,
+        "label": "PONS Fachwortschatz Banken, Finanzen und Versicherungen",
+        "content": [
+          {
+            "lang": "de",
+            "hits": [
+              {
+                "type_hint": "entry",
+                "id": "Edeen29723163",
+                "opendict": false,
+                "signature_id": 29635369,
+                "order_key": 0,
+                "resources": 0,
+                "roms": [
+                  {
+                    "type_hint": "rom",
+                    "id": "Rdeen29723164",
+                    "numeral": "",
+                    "headword": "Due Diligence",
+                    "headword_normalized": "Due Diligence",
+                    "headword_full": "Due Diligence    <span class=\"wordclass\"><acronym title=\"Substantiv\">SUBST</acronym></span> <span class=\"genus\"><acronym title=\"Femininum\">f</acronym></span> <span class=\"topic\"><acronym title=\"Investition und Finanzierung\">INV-FIN</acronym></span>",
+                    "wordclass": "Nomen",
+                    "wordclass_untranslated": "NOUN",
+                    "arabs": [
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen29723165",
+                        "arab_type": 0,
+                        "header": "",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen29723167",
+                            "translation_type": 1,
+                            "examples": 10,
+                            "source": "<strong class=\"headword\">Due Diligence</strong> <span class=\"sense\">(detaillierte Prüfung und Bewertung eines möglichen Übernahmekandidaten als Grundlage für den Kaufentscheid)</span>",
+                            "target": "due diligence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type_hint": "entry",
+                "id": "Edeen29723169",
+                "opendict": false,
+                "signature_id": 29635369,
+                "order_key": 0,
+                "resources": 0,
+                "roms": [
+                  {
+                    "type_hint": "rom",
+                    "id": "Rdeen29723170",
+                    "numeral": "",
+                    "headword": "Due Diligence-Prozess",
+                    "headword_normalized": "Due Diligence-Prozess",
+                    "headword_full": "Due Diligence-Prozess    <span class=\"wordclass\"><acronym title=\"Substantiv\">SUBST</acronym></span> <span class=\"genus\"><acronym title=\"Maskulinum\">m</acronym></span> <span class=\"topic\"><acronym title=\"Investition und Finanzierung\">INV-FIN</acronym></span>",
+                    "wordclass": "Nomen",
+                    "wordclass_untranslated": "NOUN",
+                    "arabs": [
+                      {
+                        "type_hint": "arab",
+                        "id": "Adeen29723171",
+                        "arab_type": 0,
+                        "header": "",
+                        "translations": [
+                          {
+                            "type_hint": "translation",
+                            "id": "Tdeen29723173",
+                            "translation_type": 1,
+                            "examples": 0,
+                            "source": "<strong class=\"headword\">Due Diligence-Prozess</strong>",
+                            "target": "due diligence process"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type_hint": "translation",
+                "id": "Tdeen31402062",
+                "translation_type": 1,
+                "examples": -1,
+                "source": "<span class=\"example\">\n           bei welchem \n          <strong class=\"tilde\">Arbeitgeber\n</strong>           bist du beschäftigt? \n        </span>",
+                "target": "who is your employer?"
+              }
+            ]
+          },
+          {
+            "lang": "en",
+            "hits": [
+              {
+                "type_hint": "translation",
+                "id": "Tdeen29836281",
+                "translation_type": 1,
+                "examples": 0,
+                "source": "<strong class=\"headword\">due diligence process</strong>",
+                "target": "Due Diligence-Prozess <span class=\"genus\"><acronym title=\"Maskulinum\">m</acronym></span>"
+              },
+              {
+                "type_hint": "translation",
+                "id": "Tdeen29836263",
+                "translation_type": 1,
+                "examples": 10,
+                "source": "<strong class=\"headword\">due diligence</strong>",
+                "target": "Due Diligence <span class=\"genus\"><acronym title=\"Femininum\">f</acronym></span>"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "queryMatch": {
+      "type": "HeadwordExactMatch",
+      "elementId": "Rdeen139872",
+      "language": "de"
+    },
+    "translation": "you",
+    "content": {
+      "dictionaryResult": true,
+      "bidirectionalExamples": true,
+      "monolingualExamples": true,
+      "editoriallyVerifiedExampleSentences": true,
+      "flections": {
+        "conjugation": false
+      }
+    },
+    "meta": {
+      "userQuery": {
+        "nearestNeighbours": {
+          "before": [
+            "Diätfahrplan",
+            "Diätkost",
+            "Diätkur",
+            "Diätmargarine",
+            "diatonisch",
+            "Diätwaage",
+            "Diavortrag",
+            "diazotieren",
+            "DIB",
+            "DIB-Architektur"
+          ],
+          "after": [
+            "dicht",
+            "dichtauf",
+            "dicht behaart",
+            "dichtbehaart",
+            "dichtbelaubt",
+            "dicht besiedelt",
+            "dichtbesiedelt",
+            "dicht bevölkert",
+            "dichtbevölkert",
+            "dichtbewölkt"
+          ]
+        }
+      }
+    }
+  },
+  "usage": {}
+}
