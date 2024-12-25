@@ -1,7 +1,6 @@
 import "./App.css";
 import { useSelectionDetector } from "@/lib/SelectionDetector";
 import {
-  Alert,
   Button,
   Link,
   NextUIProvider,
@@ -98,7 +97,6 @@ const useIsFullLayout = () => {
 
 const DemoInfo = () => {
   const { demoCredits } = useUIStateStore();
-  const { developerMode } = useSettingsStore();
   const [scope, animate] = useAnimate();
 
   useEffect(() => {

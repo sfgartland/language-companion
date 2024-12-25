@@ -1,5 +1,4 @@
 import { Update } from "@tauri-apps/plugin-updater";
-import { set } from "zod";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
