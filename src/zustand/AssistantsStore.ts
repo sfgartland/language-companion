@@ -6,8 +6,9 @@ import {
   CorrectionSchema,
   ExplanationSchema,
 } from "@/types/aiAnswerSchema";
-import { correctGermanSentence } from "@/ai-calls/correct-text";
+import { correctSentence } from "@/ai-calls/correct-text";
 import { ai_explain } from "@/ai-calls/explain";
+import { useUIStateStore } from "./UIState";
 
 interface BaseCardState {
   input: string;
@@ -44,8 +45,9 @@ export const useCorrectionState = create<CorrectionCardState>()(
           const { input, emphasis } = get();
           set({ initializingRequest: true, answer: null });
 
-          for await (const partialObject of correctGermanSentence(
+          for await (const partialObject of correctSentence(
             input,
+            useUIStateStore.getState().currentLanguage,
             emphasis
           )) {
             set({
@@ -80,7 +82,11 @@ export const useExplanationState = create<ExplanationCardState>()(
           const { input, emphasis } = get();
           set({ initializingRequest: true, answer: null });
 
-          for await (const partialReply of ai_explain(input, emphasis)) {
+          for await (const partialReply of ai_explain(
+            input,
+            useUIStateStore.getState().currentLanguage,
+            emphasis
+          )) {
             const currAnswer = get().answer;
             set({
               answer:

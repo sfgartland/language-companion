@@ -2,8 +2,7 @@
 import { Textarea } from "@nextui-org/input";
 import { KeyboardEvent } from "react";
 import { ActionButton } from "@/components/AssistantComponents/ActionButton";
-import { useExplanationState } from "@/zustand/assistantsStore";
-import { AssistantMode, useUIStateStore } from "@/zustand/UIState";
+import { AssistantMode } from "@/zustand/UIState";
 import { universalModeSubmitHandler } from "@/lib/StateHelpers";
 
 export function BasicInputArea({

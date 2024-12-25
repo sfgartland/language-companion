@@ -43,7 +43,7 @@ const ExplanationView = () => (
   </>
 );
 
-export function CardSide() {
+export function AssistantComponent() {
   const { mode } = useUIStateStore();
 
   return (

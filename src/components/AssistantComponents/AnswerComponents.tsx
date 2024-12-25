@@ -1,5 +1,5 @@
 
-import { useCorrectionState, useExplanationState } from "@/zustand/assistantsStore";
+import { useCorrectionState, useExplanationState } from "@/zustand/AssistantsStore";
 import { Skeleton } from "@nextui-org/react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";

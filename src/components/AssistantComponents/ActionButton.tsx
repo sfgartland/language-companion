@@ -22,8 +22,9 @@ export const ActionButton = () => {
 
   const nonSelectedModeButtons = Object.values(AssistantMode)
     .filter((key) => key !== currentMode)
-    .map((val) => (
+    .map((val, i) => (
       <Button
+      key={i}
         color="primary"
         variant="ghost"
         onPress={() => universalModeSubmitHandler(val)}

@@ -1,30 +1,45 @@
-import { useCorrectionState, useExplanationState } from "@/zustand/assistantsStore";
+import {
+  useCorrectionState,
+  useExplanationState,
+} from "@/zustand/AssistantsStore";
 import { BasicInputArea } from "./BasicInputArea";
-
+import { useUIStateStore } from "@/zustand/UIState";
 
 export const CorrectTextInput = () => {
-  const { input, setInput, emphasis, setEmphasis, getResponse } = useCorrectionState();
+  const { input, setInput, emphasis, setEmphasis, getResponse } =
+    useCorrectionState();
   return (
     <BasicInputArea
-      label="What would you like to grammar check?"
+      label={`What would you like to grammar check in ${useUIStateStore
+        .getState()
+        .currentLanguage}?`}
       question={input}
       setQuestion={setInput}
       emphasis={emphasis}
       setEmphasis={setEmphasis}
-      submitAction={getResponse} />
+      submitAction={getResponse}
+    />
   );
 };
 
-
 export const ExplanationInput = () => {
-    const { input, setInput, emphasis, setEmphasis, getResponse: getCorrection } = useExplanationState();
-    return (
-      <BasicInputArea
-        label="What would you like explained? E.g. a word, the difference between words, a sentence structure, etc."
-        question={input}
-        setQuestion={setInput}
-        emphasis={emphasis}
-        setEmphasis={setEmphasis}
-        submitAction={getCorrection} />
-    );
-  };
+  const {
+    input,
+    setInput,
+    emphasis,
+    setEmphasis,
+    getResponse: getCorrection,
+  } = useExplanationState();
+  return (
+    <BasicInputArea
+      label={`What would you like explained? E.g. a word, the difference between words, a sentence structure, etc. in ${useUIStateStore
+        .getState()
+        .currentLanguage}`}
+      question={input}
+      setQuestion={setInput}
+      emphasis={emphasis}
+      setEmphasis={setEmphasis}
+      submitAction={getCorrection}
+    />
+  );
+};

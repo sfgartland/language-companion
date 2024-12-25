@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-const { nextui } = require("@nextui-org/react");
+// const { nextui } = require("@nextui-org/react");
+import { nextui } from "@nextui-org/react";
+import typography from "@tailwindcss/typography"
 export default {
   content: [
     "./index.html",
@@ -9,7 +11,5 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
-  darkMode: "class",
-  plugins: [nextui(), require("@tailwindcss/typography")],
+  plugins: [nextui(), typography],
 };

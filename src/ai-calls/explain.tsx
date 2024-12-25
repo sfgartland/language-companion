@@ -9,10 +9,11 @@ const openai = createOpenAI({
 
 export function ai_explain(
   input: string,
+  language: string,
   emphasis?: string
 ) {
   const { textStream } = streamText({
-    prompt: `You are a college level German teacher explaing German words, concepts, and phrases to your students. Please explain any German word you are sent using English. Return your explanation in gfm markdown format.  Add headings for each section.
+    prompt: `You are a college level ${language} teacher explaing ${language} words, concepts, and phrases to your students. Please explain any ${language} word you are sent using English. Return your explanation in gfm markdown format.  Add headings for each section.
     
     Emphasize the following in your explanation: ${emphasis || "nothing"}.
 

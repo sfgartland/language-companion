@@ -7,14 +7,15 @@ const openai = createOpenAI({
   apiKey: OPENAI_API_KEY, // should ideally be loaded from external place such as env variable
 });
 
-export function correctGermanSentence(
+export function correctSentence(
   inputSentence: string,
+  language: string,
   emphasis?: string
 ) {
   const { partialObjectStream } = streamObject({
     schema: correctionSchema,
     prompt: `
-      You are a college level German teacher correcting the grammar of your student's writing.
+      You are a college level ${language} teacher correcting the grammar of your student's writing.
       Please add explanations to your corrections.
       Return the corrected text with the json field "correction" in markdown, mark the corrections in **bold**. If the sentence is correct, return the "correction" field as null.
       Return the explanation with the json field "explanation" in gfm markdown.

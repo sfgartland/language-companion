@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "german-companion-desktop",
+  "productName": "language-companion",
   "version": "0.1.0",
   "identifier": "com.german-companion-desktop.app",
   "build": {
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "german-companion-desktop",
+        "title": "Language Companion",
         "width": 800,
         "height": 600
       }

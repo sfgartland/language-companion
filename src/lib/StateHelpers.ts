@@ -1,7 +1,7 @@
 import {
   useCorrectionState,
   useExplanationState,
-} from "@/zustand/assistantsStore";
+} from "@/zustand/AssistantsStore";
 import { AssistantMode, useUIStateStore } from "@/zustand/UIState";
 
 export const getModeState = (mode: AssistantMode) => {
