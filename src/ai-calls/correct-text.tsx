@@ -1,17 +1,21 @@
 import { createOpenAI } from "@ai-sdk/openai";
 import { streamObject } from "ai";
-import { OPENAI_API_KEY } from "./env";
-import { correctionSchema } from "@/types/aiAnswerSchema";
-
-const openai = createOpenAI({
-  apiKey: OPENAI_API_KEY, // should ideally be loaded from external place such as env variable
-});
-
+import { CorrectionSchema, correctionSchema } from "@/types/aiAnswerSchema";
+import { authenticateRequest, getOpenAIKey } from "@/lib/OpenAIHelpers";
+import useSettingsStore from "@/zustand/SettingsStore";
 export function correctSentence(
   inputSentence: string,
   language: string,
   emphasis?: string
-) {
+): AsyncIterable<Partial<CorrectionSchema>> {
+
+  authenticateRequest();
+
+  const selectedModel = useSettingsStore.getState().currentModel;
+  const openai = createOpenAI({
+    apiKey: getOpenAIKey(), // should ideally be loaded from external place such as env variable
+  });
+  
   const { partialObjectStream } = streamObject({
     schema: correctionSchema,
     prompt: `
@@ -26,7 +30,7 @@ export function correctSentence(
 
       Sentence to correct: "${inputSentence}"
     `,
-    model: openai("gpt-4-turbo"),
+    model: openai(selectedModel),
   });
 
   return partialObjectStream;

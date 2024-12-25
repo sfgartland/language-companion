@@ -2,6 +2,7 @@ import {
   useCorrectionState,
   useExplanationState,
 } from "@/zustand/AssistantsStore";
+import useSettingsStore from "@/zustand/SettingsStore";
 import { AssistantMode, useUIStateStore } from "@/zustand/UIState";
 
 export const getModeState = (mode: AssistantMode) => {
@@ -38,3 +39,8 @@ export const universalModeSubmitHandler = (submitMode: AssistantMode) => {
     submitModeState.getResponse();
   }
 };
+
+export const inDemoMode = () => {
+  const settingsKey = useSettingsStore.getState().apiKey;
+  return settingsKey === "";
+}

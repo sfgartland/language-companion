@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev-web": "VITE_IS_WEB_VERSION=true vite",
     "build": "tsc && vite build",
+    "build-web": "tsc && VITE_IS_WEB_VERSION=true vite build",
     "preview": "vite preview",
     "tauri": "tauri"
   },

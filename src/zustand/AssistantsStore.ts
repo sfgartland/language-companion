@@ -9,6 +9,8 @@ import {
 import { correctSentence } from "@/ai-calls/correct-text";
 import { ai_explain } from "@/ai-calls/explain";
 import { useUIStateStore } from "./UIState";
+import useSettingsStore from "./SettingsStore";
+import { useAlertStore } from "./AlertStore";
 
 interface BaseCardState {
   input: string;
@@ -45,19 +47,28 @@ export const useCorrectionState = create<CorrectionCardState>()(
           const { input, emphasis } = get();
           set({ initializingRequest: true, answer: null });
 
-          for await (const partialObject of correctSentence(
-            input,
-            useUIStateStore.getState().currentLanguage,
-            emphasis
-          )) {
-            set({
-              answer: partialObject,
-              initializingRequest: false,
-              streaming: true,
-            });
-            console.log(partialObject);
+          try {
+            const response = correctSentence(
+              input,
+              useSettingsStore.getState().currentLanguage,
+              emphasis
+            );
+
+            for await (const partialObject of response) {
+              set({
+                answer: partialObject,
+                initializingRequest: false,
+                streaming: true,
+              });
+            }
+          } catch (e: any) {
+            console.error("Error in explain function: ", e);
+            useAlertStore
+              .getState()
+              .addAlert({ type: "error", message: e.message });
           }
-          set({ streaming: false });
+
+          set({ streaming: false, initializingRequest: false });
         },
       }),
       {
@@ -82,21 +93,31 @@ export const useExplanationState = create<ExplanationCardState>()(
           const { input, emphasis } = get();
           set({ initializingRequest: true, answer: null });
 
-          for await (const partialReply of ai_explain(
-            input,
-            useUIStateStore.getState().currentLanguage,
-            emphasis
-          )) {
-            const currAnswer = get().answer;
-            set({
-              answer:
-                currAnswer === null ? partialReply : currAnswer + partialReply,
-              initializingRequest: false,
-              streaming: true,
-            });
-            console.log(partialReply);
+          try {
+            const response = ai_explain(
+              input,
+              useSettingsStore.getState().currentLanguage,
+              emphasis
+            );
+            for await (const partialReply of response) {
+              const currAnswer = get().answer;
+              set({
+                answer:
+                  currAnswer === null
+                    ? partialReply
+                    : currAnswer + partialReply,
+                initializingRequest: false,
+                streaming: true,
+              });
+            }
+          } catch (e: any) {
+            console.error("Error in explain function: ", e);
+            useAlertStore
+              .getState()
+              .addAlert({ type: "error", message: e.message });
           }
-          set({ streaming: false });
+
+          set({ streaming: false, initializingRequest: false });
         },
       }),
       {

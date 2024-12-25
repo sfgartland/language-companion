@@ -4,13 +4,14 @@ import {
 } from "@/zustand/AssistantsStore";
 import { BasicInputArea } from "./BasicInputArea";
 import { useUIStateStore } from "@/zustand/UIState";
+import useSettingsStore from "@/zustand/SettingsStore";
 
 export const CorrectTextInput = () => {
   const { input, setInput, emphasis, setEmphasis, getResponse } =
     useCorrectionState();
   return (
     <BasicInputArea
-      label={`What would you like to grammar check in ${useUIStateStore
+      label={`What would you like to grammar check in ${useSettingsStore
         .getState()
         .currentLanguage}?`}
       question={input}
@@ -32,7 +33,7 @@ export const ExplanationInput = () => {
   } = useExplanationState();
   return (
     <BasicInputArea
-      label={`What would you like explained? E.g. a word, the difference between words, a sentence structure, etc. in ${useUIStateStore
+      label={`What would you like explained? E.g. a word, the difference between words, a sentence structure, etc. in ${useSettingsStore
         .getState()
         .currentLanguage}`}
       question={input}

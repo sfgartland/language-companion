@@ -90,7 +90,6 @@ export async function PONS_getEntry(
         };
       });
 
-      console.log(entries);
       return entries;
     }
   );

@@ -1,19 +1,37 @@
 import "./App.css";
 import { useSelectionDetector } from "@/lib/SelectionDetector";
-import { Button, NextUIProvider } from "@nextui-org/react";
+import {
+  Alert,
+  Button,
+  Link,
+  NextUIProvider,
+  Select,
+  SelectItem,
+  Tooltip,
+} from "@nextui-org/react";
 import { AssistantComponent } from "@/components/AssistantComponents/AssistantComponent";
 
 import { useUIStateStore } from "./zustand/UIState";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useAnimate } from "motion/react";
 import { FaCog } from "react-icons/fa";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../tailwind.config";
 import { useMediaQuery } from "react-responsive";
-import { DictionaryComponent, DictionaryPlaceholderComponent } from "@/components/DictionaryComponents/DictionaryComponent";
+import {
+  DictionaryComponent,
+  DictionaryPlaceholderComponent,
+} from "@/components/DictionaryComponents/DictionaryComponent";
+import { SettingsModal } from "./components/SettingsModal/SettingsModal";
+import { inDemoMode } from "./lib/StateHelpers";
+import { useEffect } from "react";
+import { useAlertStore } from "./zustand/AlertStore";
+import useSettingsStore from "./zustand/SettingsStore";
+import { ModelSelector } from "./components/SettingsModal/ModelSelector";
 
 const RightMenuBar = () => {
-  const { isDictionaryOpen, setDictionaryOpen } = useUIStateStore();
+  const { isDictionaryOpen, setDictionaryOpen, setSettingsOpen } =
+    useUIStateStore();
   const isFullLayout = useIsFullLayout();
   return (
     <div className="flex flex-col items-center justify-start h-full">
@@ -28,38 +46,41 @@ const RightMenuBar = () => {
           {isFullLayout || !isDictionaryOpen ? "Dictionary" : "Assistant"}
         </h5>
       </div>
-      <Button isIconOnly className="mt-auto" variant="light">
+      <Button
+        isIconOnly
+        className="mt-auto"
+        variant="light"
+        onPress={() => setSettingsOpen(true)}
+      >
         <FaCog size={20} className="text-slate-600" />
       </Button>
     </div>
   );
 };
 
-const LangaugeSelectionButton = ({ lang }: { lang: string }) => {
-  const { currentLanguage, setCurrentLanguage } = useUIStateStore();
-  const isActive = currentLanguage === lang;
-  return (
-    <Button
-      color="primary"
-      size="sm"
-      radius="full"
-      variant={isActive ? "solid" : "ghost"}
-      onPress={() => setCurrentLanguage(lang)}
-      className="mx-2"
-    >
-      {lang}
-    </Button>
-  );
-};
-
 const LanguageBar = () => {
+  const { currentLanguage, setCurrentLanguage, availableLanguages } =
+    useSettingsStore();
+  const languages = availableLanguages.map((lang) => ({
+    key: lang,
+    label: lang,
+  }));
+
   return (
-    <div className="flex mx-5">
-      <h3>Select Language: </h3>
-      <LangaugeSelectionButton lang="German" />
-      <LangaugeSelectionButton lang="English" />
-      <LangaugeSelectionButton lang="Spanish" />
-      <LangaugeSelectionButton lang="French" />
+    <div className="flex justify-end flex-1">
+      <Select
+        className="max-w-xs min-w-52"
+        items={languages}
+        label="Selected language"
+        placeholder="Select a language"
+        selectedKeys={[currentLanguage]}
+        onChange={(selected) => setCurrentLanguage(selected.target.value)}
+      >
+        {(animal) => <SelectItem>{animal.label}</SelectItem>}
+      </Select>
+      {/* <Button isIconOnly variant="light" size="lg">
+        <IoMdAdd />
+      </Button> */}
     </div>
   );
 };
@@ -73,18 +94,95 @@ const useIsFullLayout = () => {
   return isFullLayout;
 };
 
+const DemoInfo = () => {
+  const { demoCredits, useDemoCredits } = useUIStateStore();
+  const { developerMode } = useSettingsStore();
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    animate([
+      ["div", { scale: 1.1 }, { type: "spring", duration: 0.2 }],
+      ["div", { scale: 1 }, { type: "spring", duration: 0.1 }],
+    ]);
+  }, [demoCredits]);
+
+  return (
+    <div>
+      <p className="prose">
+        <i>You are currently in demo mode!</i> Add a API key to unlock all
+        features.
+      </p>
+      <span ref={scope}>
+        <Tooltip content="Add your own API key to allow for more requests">
+          <div
+            className={
+              "whitespace-nowrap" + ` ${demoCredits <= 0 ? "text-red-500" : ""}`
+            }
+          >
+            Free Credits: <b>{demoCredits}</b>
+          </div>
+        </Tooltip>
+        {import.meta.env.DEV && developerMode ? (
+          <>
+            <Button onPress={() => useDemoCredits(demoCredits)}>
+              0 Credits
+            </Button>
+            <Button onPress={() => useDemoCredits(-10 + demoCredits)}>
+              10 credits
+            </Button>
+            <Button
+              onPress={() =>
+                useAlertStore
+                  .getState()
+                  .addAlert({ message: "Hello", type: "error" })
+              }
+            >
+              Add Alert
+            </Button>
+          </>
+        ) : null}
+      </span>
+    </div>
+  );
+};
+
 function App() {
   useSelectionDetector();
 
   const { isDictionaryOpen } = useUIStateStore();
+  const { alerts } = useAlertStore();
+  const { currentLanguage } = useSettingsStore();
 
   const isFullLayout = useIsFullLayout();
 
   return (
     <NextUIProvider>
-      <div className="flex flex-col h-screen w-screen pt-10 bg-white">
-        <div className="flex-0 max-w-screen-md mb-10">
-          <LanguageBar />
+      <div className="flex flex-col h-screen w-screen bg-white">
+        <div className="flex-0 mb-5 p-5 flex justify-between items-center">
+          <AnimatePresence initial={inDemoMode()}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {inDemoMode() ? <DemoInfo /> : null}
+            </motion.div>
+          </AnimatePresence>
+          <div className="flex gap-5">
+            {import.meta.env.VITE_IS_WEB_VERSION === "true" ? (
+              <Link
+                className="mx-5 whitespace-nowrap align-middle"
+                href="https://github.com/sfgartland/language-companion"
+                underline="always"
+                isExternal
+                showAnchorIcon
+              >
+                Download for Windows
+              </Link>
+            ) : null}
+            <LanguageBar />
+            <ModelSelector />
+          </div>
         </div>
         <div className="flex flex-row flex-1 justify-center ml-10 overflow-y-hidden">
           <div className="flex flex-row flex-1 justify-center ml-10">
@@ -96,7 +194,9 @@ function App() {
                   animate={{ opacity: 1, flex: 1 }}
                   exit={{ opacity: 0, flex: 0 }}
                 >
-                  <h1 className="text-3xl font-bold mb-10">Assistant</h1>
+                  <h1 className="text-3xl font-bold mb-10">
+                    {currentLanguage} Assistant
+                  </h1>
                   <AssistantComponent />
                 </motion.div>
               ) : null}
@@ -110,7 +210,11 @@ function App() {
                   exit={{ opacity: 0, flex: 0 }}
                 >
                   <h1 className="text-3xl font-bold mb-10">Dictionary</h1>
-                  {import.meta.env.VITE_ENABLE_DICTIONARY === "true" ? <DictionaryComponent /> : <DictionaryPlaceholderComponent/>}
+                  {import.meta.env.VITE_ENABLE_DICTIONARY === "true" ? (
+                    <DictionaryComponent />
+                  ) : (
+                    <DictionaryPlaceholderComponent />
+                  )}
                 </motion.div>
               ) : null}
             </AnimatePresence>
@@ -119,6 +223,19 @@ function App() {
             <RightMenuBar />
           </div>
         </div>
+      </div>
+      <SettingsModal />
+      <div className="fixed bottom-10 right-10 z-50 p-5 flex flex-col-reverse gap-5 max-w-screen-md w-screen">
+        {alerts.map((alert) => (
+          <Alert
+            key={alert.id}
+            className=" w-screen"
+            title="Error"
+            description={alert.message}
+            color="danger"
+            onClose={() => useAlertStore.getState().removeAlert(alert.id)}
+          />
+        ))}
       </div>
     </NextUIProvider>
   );
