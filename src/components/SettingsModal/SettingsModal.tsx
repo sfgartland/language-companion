@@ -14,6 +14,8 @@ import { IoMdAdd } from "react-icons/io";
 import { ModelSelector } from "./ModelSelector";
 import useSettingsStore from "@/zustand/SettingsStore";
 import { useState } from "react";
+import { checkForUpdate, downloadAndInstallUpdate } from "@/updater/Updater";
+import { useUpdaterUIState } from "@/zustand/UpdaterUIStore";
 
 export const SettingsModal = () => {
   const { isSettingsOpen, setSettingsOpen } = useUIStateStore();
@@ -28,6 +30,8 @@ export const SettingsModal = () => {
     addLanguage,
     currentLanguage,
   } = useSettingsStore();
+
+  const { foundUpdate, checkingForUpdates } = useUpdaterUIState();
 
   const [keyInput, setKeyInput] = useState(apiKey);
 
@@ -56,7 +60,17 @@ export const SettingsModal = () => {
                       placeholder="API Key"
                       value={keyInput}
                       onChange={(e) => setKeyInput(e.target.value)}
-                      endContent={<Button onPress={() => setApiKey(keyInput)} variant="light" className={keyInput !== apiKey ? "visible" : "invisible"}>Save</Button>}
+                      endContent={
+                        <Button
+                          onPress={() => setApiKey(keyInput)}
+                          variant="light"
+                          className={
+                            keyInput !== apiKey ? "visible" : "invisible"
+                          }
+                        >
+                          Save
+                        </Button>
+                      }
                       description={keyInput !== apiKey ? "Unsaved" : "Saved"}
                     />
                   </td>
@@ -137,6 +151,28 @@ export const SettingsModal = () => {
                     </td>
                   </tr>
                 ) : null}
+                <tr className="*:py-3">
+                  <td className="">
+                    {!foundUpdate ? (
+                      <Button variant="ghost" onPress={() => checkForUpdate()} isLoading={checkingForUpdates}>
+                        Check for Update
+                      </Button>
+                    ) : (
+                      `Found update ! (v${foundUpdate.version})`
+                    )}
+                  </td>
+                  <td>
+                    {foundUpdate ? (
+                      <Button
+                        variant="solid"
+                        color="primary"
+                        onPress={() => downloadAndInstallUpdate(foundUpdate)}
+                      >
+                        Install update
+                      </Button>
+                    ) : null}
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
-interface AlertType {
+export interface AlertType {
   id: string;
-  type: "error";
+  type: "error" | "update";
   message: string;
   timeout?: number;
 }

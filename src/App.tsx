@@ -28,6 +28,8 @@ import { useEffect } from "react";
 import { useAlertStore } from "./zustand/AlertStore";
 import useSettingsStore from "./zustand/SettingsStore";
 import { ModelSelector } from "./components/SettingsModal/ModelSelector";
+import { AlertHandler } from "./components/AlertHandler";
+import { startupCheckForUpdate } from "./updater/Updater";
 
 const RightMenuBar = () => {
   const { isDictionaryOpen, setDictionaryOpen, setSettingsOpen } =
@@ -95,7 +97,7 @@ const useIsFullLayout = () => {
 };
 
 const DemoInfo = () => {
-  const { demoCredits, useDemoCredits } = useUIStateStore();
+  const { demoCredits } = useUIStateStore();
   const { developerMode } = useSettingsStore();
   const [scope, animate] = useAnimate();
 
@@ -122,25 +124,6 @@ const DemoInfo = () => {
             Free Credits: <b>{demoCredits}</b>
           </div>
         </Tooltip>
-        {import.meta.env.DEV && developerMode ? (
-          <>
-            <Button onPress={() => useDemoCredits(demoCredits)}>
-              0 Credits
-            </Button>
-            <Button onPress={() => useDemoCredits(-10 + demoCredits)}>
-              10 credits
-            </Button>
-            <Button
-              onPress={() =>
-                useAlertStore
-                  .getState()
-                  .addAlert({ message: "Hello", type: "error" })
-              }
-            >
-              Add Alert
-            </Button>
-          </>
-        ) : null}
       </span>
     </div>
   );
@@ -150,14 +133,38 @@ function App() {
   useSelectionDetector();
 
   const { isDictionaryOpen } = useUIStateStore();
-  const { alerts } = useAlertStore();
-  const { currentLanguage } = useSettingsStore();
+  const { currentLanguage, developerMode } = useSettingsStore();
+  const { demoCredits, useDemoCredits } = useUIStateStore();
+  const {addAlert} = useAlertStore();
+
 
   const isFullLayout = useIsFullLayout();
+
+  useEffect(() => {
+    startupCheckForUpdate();
+  }, []);
 
   return (
     <NextUIProvider>
       <div className="flex flex-col h-screen w-screen bg-white">
+        {import.meta.env.DEV && developerMode ? (
+          <div>
+            <Button onPress={() => useDemoCredits(demoCredits)}>
+              0 Credits
+            </Button>
+            <Button onPress={() => useDemoCredits(-10 + demoCredits)}>
+              10 credits
+            </Button>
+            <Button
+              onPress={() => addAlert({ message: "Hello", type: "error" })}
+            >
+              Add Alert
+            </Button>
+            <Button onPress={() => startupCheckForUpdate()}>
+              Run startup update check
+            </Button>
+          </div>
+        ) : null}
         <div className="flex-0 mb-5 p-5 flex justify-between items-center">
           <AnimatePresence initial={inDemoMode()}>
             <motion.div
@@ -225,18 +232,7 @@ function App() {
         </div>
       </div>
       <SettingsModal />
-      <div className="fixed bottom-10 right-10 z-50 p-5 flex flex-col-reverse gap-5 max-w-screen-md w-screen">
-        {alerts.map((alert) => (
-          <Alert
-            key={alert.id}
-            className=" w-screen"
-            title="Error"
-            description={alert.message}
-            color="danger"
-            onClose={() => useAlertStore.getState().removeAlert(alert.id)}
-          />
-        ))}
-      </div>
+      <AlertHandler />
     </NextUIProvider>
   );
 }

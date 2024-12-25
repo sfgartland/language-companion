@@ -15,7 +15,6 @@ export interface UIStateStore {
   isSettingsOpen: boolean;
   demoCredits: number;
   availableModels: string[];
-
   getAvailableModels: (key?: string) => Promise<void>;
   useDemoCredits: (credits?: number) => void;
   setMode: (mode: AssistantMode) => void;
