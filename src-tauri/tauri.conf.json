@@ -9,6 +9,17 @@
     "beforeBuildCommand": "yarn build",
     "frontendDist": "../dist"
   },
+  "plugins": {
+    "updater": {
+      "endpoints": [
+        "https://github.com/sfgartland/language-companion/releases/latest/download/latest.json"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEUzRUE4M0NEMUM3QTlDNUIKUldSYm5Ib2N6WVBxNHlkRm9ic0dDYTU1c3NGWDZUdFhXazNMd2YxeFpqTXBaSG9LTWsvY3NnNEYK",
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  },
   "app": {
     "windows": [
       {
@@ -30,6 +41,7 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "createUpdaterArtifacts": true
   }
 }
