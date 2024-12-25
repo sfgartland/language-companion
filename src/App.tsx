@@ -177,7 +177,7 @@ function App() {
                 isExternal
                 showAnchorIcon
               >
-                Download for Windows
+                Download the app
               </Link>
             ) : null}
             <LanguageBar />
