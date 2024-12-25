@@ -8,7 +8,6 @@ import {
 } from "@/types/aiAnswerSchema";
 import { correctSentence } from "@/ai-calls/correct-text";
 import { ai_explain } from "@/ai-calls/explain";
-import { useUIStateStore } from "./UIState";
 import useSettingsStore from "./SettingsStore";
 import { useAlertStore } from "./AlertStore";
 

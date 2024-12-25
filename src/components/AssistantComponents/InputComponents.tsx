@@ -3,7 +3,6 @@ import {
   useExplanationState,
 } from "@/zustand/AssistantsStore";
 import { BasicInputArea } from "./BasicInputArea";
-import { useUIStateStore } from "@/zustand/UIState";
 import useSettingsStore from "@/zustand/SettingsStore";
 
 export const CorrectTextInput = () => {

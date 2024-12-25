@@ -13,8 +13,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { ModelSelector } from "./ModelSelector";
 import useSettingsStore from "@/zustand/SettingsStore";
-import { useEffect, useState } from "react";
-import { set } from "zod";
+import { useState } from "react";
 
 export const SettingsModal = () => {
   const { isSettingsOpen, setSettingsOpen } = useUIStateStore();

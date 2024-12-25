@@ -1,5 +1,4 @@
 import useSettingsStore from "@/zustand/SettingsStore";
-import OpenAI from "openai";
 import { inDemoMode } from "./StateHelpers";
 import { useUIStateStore } from "@/zustand/UIState";
 

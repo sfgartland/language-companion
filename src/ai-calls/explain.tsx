@@ -1,5 +1,4 @@
 import { authenticateRequest, getOpenAIKey } from "@/lib/OpenAIHelpers";
-import { useAlertStore } from "@/zustand/AlertStore";
 import useSettingsStore from "@/zustand/SettingsStore";
 import { createOpenAI } from "@ai-sdk/openai";
 import { streamText } from "ai";
