@@ -35,7 +35,7 @@ export function DictionaryPlaceholderComponent() {
       <DictSearchBar disabled />
       <div className="flex flex-col prose">
         <h3>Dictionary is disabled in the distributed version</h3>
-        <p>The dictionary is currently only available in German and uses unofficial APIs, therefor I cannot include it in the distributed version of this software. <br/> <br/><i>If you know of any official dictionary APIs, please let me know so that they can be implemented.</i></p>
+        <p>The dictionary is currently only available in German and uses unofficial APIs, therefore I cannot include it in the distributed version of this software. <br/> <br/><i>If you know of any official dictionary APIs, please let me know so that they can be implemented.</i></p>
       </div>
     </div>
   );
