@@ -2,11 +2,7 @@ import "./App.css";
 import { useSelectionDetector } from "@/lib/SelectionDetector";
 import {
   Button,
-  Link,
   NextUIProvider,
-  Select,
-  SelectItem,
-  Tooltip,
 } from "@nextui-org/react";
 import { AssistantComponent } from "@/components/AssistantComponents/AssistantComponent";
 
@@ -23,7 +19,6 @@ import {
 } from "@/components/DictionaryComponents/DictionaryComponent";
 import { SettingsModal } from "./components/SettingsModal/SettingsModal";
 import { useEffect } from "react";
-import { useAlertStore } from "./zustand/AlertStore";
 import useSettingsStore from "./zustand/SettingsStore";
 import { AlertHandler } from "./components/AlertHandler";
 import { startupCheckForUpdate } from "./updater/Updater";
@@ -73,8 +68,6 @@ function App() {
 
   const { isDictionaryOpen } = useUIStateStore();
   const { currentLanguage, developerMode } = useSettingsStore();
-  const { demoCredits, useDemoCredits } = useUIStateStore();
-  const { addAlert } = useAlertStore();
 
   const isFullLayout = useIsFullLayout();
 

@@ -9,14 +9,11 @@ import {
   Switch,
 } from "@nextui-org/react";
 
-import { FaRegTrashAlt } from "react-icons/fa";
-import { IoMdAdd } from "react-icons/io";
 import { ModelSelector } from "./ModelSelector";
 import useSettingsStore from "@/zustand/SettingsStore";
 import { useState } from "react";
 import { checkForUpdate, downloadAndInstallUpdate } from "@/updater/Updater";
 import { useUpdaterUIState } from "@/zustand/UpdaterUIStore";
-import { LanguageSelector } from "../TopBar/LanguageSelector";
 import { LanguageManager } from "./LanguageManager";
 
 export const SettingsModal = () => {
