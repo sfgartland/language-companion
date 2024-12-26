@@ -16,26 +16,24 @@ import useSettingsStore from "@/zustand/SettingsStore";
 import { useState } from "react";
 import { checkForUpdate, downloadAndInstallUpdate } from "@/updater/Updater";
 import { useUpdaterUIState } from "@/zustand/UpdaterUIStore";
+import { LanguageSelector } from "../TopBar/LanguageSelector";
+import { LanguageManager } from "./LanguageManager";
 
 export const SettingsModal = () => {
   const { isSettingsOpen, setSettingsOpen } = useUIStateStore();
 
   const {
-    availableLanguages,
     apiKey,
     setApiKey,
     developerMode,
     setDeveloperMode,
-    removeLanguage,
-    addLanguage,
-    currentLanguage,
   } = useSettingsStore();
 
   const { foundUpdate, checkingForUpdates } = useUpdaterUIState();
 
   const [keyInput, setKeyInput] = useState(apiKey);
 
-  const [addLangInput, setAddLangInput] = useState("");
+ 
 
   return (
     <Modal
@@ -86,49 +84,7 @@ export const SettingsModal = () => {
           </div>
           <div className="flex flex-col items-center justify-stretch">
             <h3 className="text-xl border-b mb-5 mt-8 w-full">Languages</h3>
-            <table className="table-auto w-full max-w-md">
-              <tbody>
-                {availableLanguages.map((lang) => (
-                  <tr key={lang} className="border-b *:py-2">
-                    <td className={lang === currentLanguage ? "font-bold" : ""}>
-                      {lang}
-                    </td>
-                    <td className="text-center">
-                      <Button
-                        isIconOnly
-                        variant="light"
-                        size="sm"
-                        onPress={() => removeLanguage(lang)}
-                      >
-                        <FaRegTrashAlt className="text-red-500" />
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-                <tr className="*:py-2 text-center">
-                  <td>
-                    <Input
-                      placeholder="Add language"
-                      value={addLangInput}
-                      onValueChange={setAddLangInput}
-                    />
-                  </td>
-                  <td>
-                    <Button
-                      isIconOnly
-                      variant="light"
-                      size="sm"
-                      onPress={() => {
-                        addLanguage(addLangInput);
-                        setAddLangInput("");
-                      }}
-                    >
-                      <IoMdAdd size="25" className="text-slate-600" />
-                    </Button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <LanguageManager />
           </div>
           <div className="flex flex-col">
             <h3 className="text-xl border-b mb-5 mt-8">Miscellaneous</h3>
@@ -154,7 +110,11 @@ export const SettingsModal = () => {
                 <tr className="*:py-3">
                   <td className="">
                     {!foundUpdate ? (
-                      <Button variant="ghost" onPress={() => checkForUpdate()} isLoading={checkingForUpdates}>
+                      <Button
+                        variant="ghost"
+                        onPress={() => checkForUpdate()}
+                        isLoading={checkingForUpdates}
+                      >
                         Check for Update
                       </Button>
                     ) : (

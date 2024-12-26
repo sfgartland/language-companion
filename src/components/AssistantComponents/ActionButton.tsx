@@ -39,7 +39,7 @@ export const ActionButton = () => {
     ));
 
   return (
-    <div className="flex my-5 justify-end" onMouseLeave={() => setShow(false)}>
+    <div className="flex flex-wrap-reverse my-5 justify-end" onMouseLeave={() => setShow(false)}>
       {nonSelectedModeButtons}
       <Button
         color="primary"
