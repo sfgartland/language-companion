@@ -25,7 +25,7 @@ export const ModelSelector = () => {
       selectedKeys={[currentModel]}
       disabledKeys={disabledModels}
       onChange={(e) => setCurrentModel(e.target.value)}
-      description={inDemoMode() ? "Add your API key in the settings to unlock all models" : ""}
+      description={inDemoMode() ? "Add an OpenAI API key in the settings to unlock all models" : ""}
     >
       {(model) => <SelectItem>{model.label}</SelectItem>}
     </Select>

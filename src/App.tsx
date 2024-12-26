@@ -133,13 +133,14 @@ function App() {
   const { isDictionaryOpen } = useUIStateStore();
   const { currentLanguage, developerMode } = useSettingsStore();
   const { demoCredits, useDemoCredits } = useUIStateStore();
-  const {addAlert} = useAlertStore();
-
+  const { addAlert } = useAlertStore();
 
   const isFullLayout = useIsFullLayout();
 
   useEffect(() => {
-    startupCheckForUpdate();
+    if (import.meta.env.VITE_IS_WEB_VERSION !== "true") {
+      startupCheckForUpdate();
+    }
   }, []);
 
   return (
