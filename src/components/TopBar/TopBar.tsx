@@ -24,7 +24,7 @@ export const TopBar = () => {
         {import.meta.env.VITE_IS_WEB_VERSION === "true" ? (
           <Link
             className="mx-5 whitespace-nowrap align-middle"
-            href="https://github.com/sfgartland/language-companion"
+            href="https://github.com/sfgartland/language-companion/releases/latest"
             underline="always"
             isExternal
             showAnchorIcon
