@@ -144,7 +144,7 @@ export const SettingsModal = () => {
                     <table className="table-auto">
                       <tbody>
                         <tr className="*:py-3">
-                          <td className="w-full text-slate-500">
+                          <td className="w-full">
                             Enable dictionary
                           </td>
                           <td>
