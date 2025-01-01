@@ -4,7 +4,6 @@ import {
 } from "@/zustand/AssistantsStore";
 import useSettingsStore from "@/zustand/SettingsStore";
 import { AssistantMode, useUIStateStore } from "@/zustand/UIState";
-import { m } from "framer-motion";
 
 export const setInputAndGetResponse = (
   mode: AssistantMode,
