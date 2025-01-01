@@ -10,9 +10,6 @@ import {
   ExplanationAnswer,
 } from "@/components/AssistantComponents/AnswerComponents";
 import { AssistantMode, useUIStateStore } from "@/zustand/UIState";
-// import { ExerciseGenerator } from "./ExerciseGenerator";
-// import ConversationCard from "./conversation-card";
-// import ExplanationCard from "./explanation-card";
 
 const TopBarButton = ({ mode }: { mode: AssistantMode }) => {
   const { mode: currentMode, setMode } = useUIStateStore();

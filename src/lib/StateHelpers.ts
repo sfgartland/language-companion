@@ -4,22 +4,28 @@ import {
 } from "@/zustand/AssistantsStore";
 import useSettingsStore from "@/zustand/SettingsStore";
 import { AssistantMode, useUIStateStore } from "@/zustand/UIState";
+import { m } from "framer-motion";
+
+export const setInputAndGetResponse = (
+  mode: AssistantMode,
+  input: string,
+  emphasis?: string
+) => {
+  const modeState = getModeState(mode);
+
+  modeState.setInput(input);
+  if (emphasis) {
+    modeState.setEmphasis(emphasis);
+  }
+
+  modeState.getResponse();
+};
 
 export const getModeState = (mode: AssistantMode) => {
   if (mode == AssistantMode.CorrectText) {
-    const correctionState = useCorrectionState.getState();
-    return {
-      input: correctionState.input,
-      setInput: correctionState.setInput,
-      getResponse: correctionState.getResponse,
-    };
+    return useCorrectionState.getState();
   } else if (mode == AssistantMode.Explanation) {
-    const explanationState = useExplanationState.getState();
-    return {
-      input: explanationState.input,
-      setInput: explanationState.setInput,
-      getResponse: explanationState.getResponse,
-    };
+    return useExplanationState.getState();
   } else {
     throw Error("Something is very wrong, too many modes added??");
   }
@@ -27,20 +33,18 @@ export const getModeState = (mode: AssistantMode) => {
 
 export const universalModeSubmitHandler = (submitMode: AssistantMode) => {
   const uiState = useUIStateStore.getState();
-  const submitModeState = getModeState(submitMode);
+  const currentModeState = getModeState(uiState.mode)
+
+
   if (submitMode !== uiState.mode) {
-    const currentModeState = getModeState(uiState.mode);
-
-    submitModeState.setInput(currentModeState.input);
-    submitModeState.getResponse();
-
     uiState.setMode(submitMode);
+    setInputAndGetResponse(submitMode, currentModeState.input);
   } else {
-    submitModeState.getResponse();
+    currentModeState.getResponse();
   }
 };
 
 export const inDemoMode = () => {
   const settingsKey = useSettingsStore.getState().apiKey;
   return settingsKey === "";
-}
+};

@@ -9,6 +9,10 @@ interface SettingsState {
   currentModel: string;
   currentLanguage: string;
   developerMode: boolean;
+  showHiddenSettings: boolean;
+  enabledDictionary: boolean;
+  setEnabledDictionary: (enabled: boolean) => void;
+  setShowHiddenSettings: (show: boolean) => void;
   setDeveloperMode: (mode: boolean) => void;
   setApiKey: (key: string) => void;
   // setLanguages: (langs: string[]) => void;
@@ -36,11 +40,16 @@ const useSettingsStore = create<SettingsState>()(
       currentModel: "gpt-4o-mini",
       currentLanguage: "German",
       developerMode: false,
+      showHiddenSettings: false,
+      enabledDictionary: false,
+      setEnabledDictionary: (enabled) => set({ enabledDictionary: enabled }),
+      setShowHiddenSettings: (show) => set({ showHiddenSettings: show }),
       setDeveloperMode: (mode) => {
         if (import.meta.env.DEV)
           set({
             developerMode: mode,
-          }); // Only allow it to be on when running dev build
+          });
+        // Only allow it to be on when running dev build
         else set({ developerMode: false });
       },
       setApiKey: (key: string) => {

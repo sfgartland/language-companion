@@ -1,18 +1,12 @@
 import "./App.css";
 import { useSelectionDetector } from "@/lib/SelectionDetector";
-import {
-  Button,
-  NextUIProvider,
-} from "@nextui-org/react";
+import { Button, NextUIProvider } from "@nextui-org/react";
 import { AssistantComponent } from "@/components/AssistantComponents/AssistantComponent";
 
 import { useUIStateStore } from "./zustand/UIState";
 import { AnimatePresence, motion } from "motion/react";
 import { FaCog } from "react-icons/fa";
 
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../tailwind.config";
-import { useMediaQuery } from "react-responsive";
 import {
   DictionaryComponent,
   DictionaryPlaceholderComponent,
@@ -24,6 +18,8 @@ import { AlertHandler } from "./components/AlertHandler";
 import { startupCheckForUpdate } from "./updater/Updater";
 import { DevModePanel } from "./components/TopBar/DevModePanel";
 import { TopBar } from "./components/TopBar/TopBar";
+import { registerHotkeys } from "./lib/GlobalHotkeyHandler";
+import { useIsFullLayout } from "./lib/UIHelpers";
 
 const RightMenuBar = () => {
   const { isDictionaryOpen, setDictionaryOpen, setSettingsOpen } =
@@ -54,26 +50,20 @@ const RightMenuBar = () => {
   );
 };
 
-const useIsFullLayout = () => {
-  const fullConfig = resolveConfig(tailwindConfig);
-  const xlBreakpoint = fullConfig.theme.screens.xl;
-
-  const isFullLayout = useMediaQuery({ query: `(min-width: ${xlBreakpoint})` });
-
-  return isFullLayout;
-};
-
 function App() {
   useSelectionDetector();
 
   const { isDictionaryOpen } = useUIStateStore();
-  const { currentLanguage, developerMode } = useSettingsStore();
+  const { currentLanguage, developerMode, enabledDictionary } =
+    useSettingsStore();
 
   const isFullLayout = useIsFullLayout();
 
   useEffect(() => {
     if (import.meta.env.VITE_IS_WEB_VERSION !== "true") {
       startupCheckForUpdate();
+
+      registerHotkeys();
     }
   }, []);
 
@@ -108,7 +98,7 @@ function App() {
                   exit={{ opacity: 0, flex: 0 }}
                 >
                   <h1 className="text-3xl font-bold mb-10">Dictionary</h1>
-                  {import.meta.env.VITE_ENABLE_DICTIONARY === "true" ? (
+                  {enabledDictionary ? (
                     <DictionaryComponent />
                   ) : (
                     <DictionaryPlaceholderComponent />

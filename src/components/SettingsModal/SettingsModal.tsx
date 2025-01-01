@@ -19,18 +19,35 @@ import { LanguageManager } from "./LanguageManager";
 export const SettingsModal = () => {
   const { isSettingsOpen, setSettingsOpen } = useUIStateStore();
 
-  const {
-    apiKey,
-    setApiKey,
-    developerMode,
-    setDeveloperMode,
-  } = useSettingsStore();
+  const { apiKey, setApiKey, developerMode, setDeveloperMode, showHiddenSettings, setShowHiddenSettings, enabledDictionary, setEnabledDictionary } =
+    useSettingsStore();
 
   const { foundUpdate, checkingForUpdates } = useUpdaterUIState();
 
+  const [michClicks, setMichClicks] = useState<Date[]>([]);
+
   const [keyInput, setKeyInput] = useState(apiKey);
 
- 
+  const handleMichClick = () => {
+    const now = new Date();
+    const newTimestamps = [...michClicks, now];
+    
+    // Remove timestamps older than 5 seconds
+    const recentTimestamps = newTimestamps.filter(
+      (timestamp) => now.getTime() - timestamp.getTime() <= 5000
+    );
+
+    if(recentTimestamps.length >= 5) {
+      console.log("Toggling hidden settings!")
+      setShowHiddenSettings(!showHiddenSettings);
+      setMichClicks([]);
+    } else {
+      setMichClicks(recentTimestamps);
+    }
+
+
+
+  }
 
   return (
     <Modal
@@ -84,7 +101,7 @@ export const SettingsModal = () => {
             <LanguageManager />
           </div>
           <div className="flex flex-col">
-            <h3 className="text-xl border-b mb-5 mt-8">Miscellaneous</h3>
+            <h3 className="text-xl border-b mb-5 mt-8" onClick={handleMichClick}>Miscellaneous</h3>
             <table className="table-auto">
               <tbody>
                 <tr className="*:py-3">
@@ -93,17 +110,6 @@ export const SettingsModal = () => {
                     <Switch isDisabled />
                   </td>
                 </tr>
-                {import.meta.env.DEV ? (
-                  <tr className="*:py-3">
-                    <td className="w-full">Developer mode</td>
-                    <td>
-                      <Switch
-                        isSelected={developerMode}
-                        onValueChange={setDeveloperMode}
-                      />
-                    </td>
-                  </tr>
-                ) : null}
                 <tr className="*:py-3">
                   <td className="">
                     {!foundUpdate ? (
@@ -130,6 +136,35 @@ export const SettingsModal = () => {
                     ) : null}
                   </td>
                 </tr>
+                {import.meta.env.DEV || showHiddenSettings ? (
+                  <div className="flex flex-col items-center justify-stretch">
+                    <h3 className="text-xl border-b mb-5 mt-8 w-full">
+                      Hidden Settings
+                    </h3>
+                    <table className="table-auto">
+                      <tbody>
+                        <tr className="*:py-3">
+                          <td className="w-full text-slate-500">
+                            Enable dictionary
+                          </td>
+                          <td>
+                            <Switch isSelected={enabledDictionary} onValueChange={setEnabledDictionary} />
+                          </td>
+                        </tr>
+
+                        <tr className="*:py-3">
+                          <td className="w-full">Developer mode</td>
+                          <td>
+                            <Switch
+                              isSelected={developerMode}
+                              onValueChange={setDeveloperMode}
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                ) : null}
               </tbody>
             </table>
           </div>

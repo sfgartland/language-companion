@@ -9,6 +9,14 @@
     "main"
   ],
   "permissions": [
-    "updater:default"
+    "updater:default",
+    "global-shortcut:default",
+    "global-shortcut:allow-is-registered",
+    "global-shortcut:allow-register",
+    "global-shortcut:allow-unregister",
+    "global-shortcut:allow-unregister-all",
+    "clipboard-manager:allow-read-text",
+    "core:window:allow-set-focus"
+
   ]
 }
