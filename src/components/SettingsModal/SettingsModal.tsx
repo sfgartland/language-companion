@@ -9,9 +9,11 @@ import {
   Switch,
 } from "@nextui-org/react";
 
+import {app} from "@tauri-apps/api"
+
 import { ModelSelector } from "./ModelSelector";
 import useSettingsStore from "@/zustand/SettingsStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { checkForUpdate, downloadAndInstallUpdate } from "@/updater/Updater";
 import { useUpdaterUIState } from "@/zustand/UpdaterUIStore";
 import { LanguageManager } from "./LanguageManager";
@@ -26,7 +28,19 @@ export const SettingsModal = () => {
 
   const [michClicks, setMichClicks] = useState<Date[]>([]);
 
+  const [currentVersion, setCurrentVersion] = useState<string>();
+
   const [keyInput, setKeyInput] = useState(apiKey);
+
+  useEffect(() => {
+    const findVersion = async () => {
+      const version = await app.getVersion();
+      setCurrentVersion(version);
+    }
+
+    findVersion();
+
+  }, [])
 
   const handleMichClick = () => {
     const now = new Date();
@@ -109,6 +123,12 @@ export const SettingsModal = () => {
                   <td>
                     <Switch isDisabled />
                   </td>
+                </tr>
+                <tr className="*:py-3">
+                  <td>
+                    Current version
+                  </td>
+                  <td>{currentVersion || "Loading..."}</td>
                 </tr>
                 <tr className="*:py-3">
                   <td className="">
