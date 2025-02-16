@@ -25,12 +25,15 @@ export function correctSentence(
       Return the explanation with the json field "explanation" in gfm markdown.
       Return the English translation with the json field "translation".
       
-    Emphasize the following in your correction: ${emphasis || "nothing"}.
+      Emphasize the following in your correction: ${emphasis || "nothing"}.
 
 
       Sentence to correct: "${inputSentence}"
     `,
     model: openai(selectedModel),
+    providerOptions: {
+      openai: { reasoningEffort: "medium" },
+    },
   });
 
   return partialObjectStream;

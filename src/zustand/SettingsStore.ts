@@ -22,7 +22,7 @@ interface SettingsState {
   setCurrentLanguage: (lang: string) => void;
 }
 
-export const whitelistedModels = ["gpt-4o-mini", "gpt-4o"];
+export const whitelistedModels = ["gpt-4o-mini", "gpt-4o", "o3-mini", "o3"];
 
 // Create the Zustand store
 const useSettingsStore = create<SettingsState>()(

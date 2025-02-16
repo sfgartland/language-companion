@@ -5,23 +5,23 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@ai-sdk/openai@npm:^1.0.11":
-  version: 1.0.11
-  resolution: "@ai-sdk/openai@npm:1.0.11"
+"@ai-sdk/openai@npm:^1.1.12":
+  version: 1.1.12
+  resolution: "@ai-sdk/openai@npm:1.1.12"
   dependencies:
-    "@ai-sdk/provider": 1.0.3
-    "@ai-sdk/provider-utils": 2.0.5
+    "@ai-sdk/provider": 1.0.7
+    "@ai-sdk/provider-utils": 2.1.8
   peerDependencies:
     zod: ^3.0.0
-  checksum: afd6df22259aad887165ec43243d4bba4ad7256c67fe0f884e3560a082fe1952a48eed82b7378720feba4efd12d7e8b6071cec4e339f29ea90b6823bf4a1ff55
+  checksum: e88079a41127504f9173348404dba8200c51f5c1ade998bef9d2b35fbd7391bdc3a62eb0500823b5ebef990f4d4a2fec66575da296c0b70fe44906764f88ec04
   languageName: node
   linkType: hard
 
-"@ai-sdk/provider-utils@npm:2.0.5":
-  version: 2.0.5
-  resolution: "@ai-sdk/provider-utils@npm:2.0.5"
+"@ai-sdk/provider-utils@npm:2.1.8":
+  version: 2.1.8
+  resolution: "@ai-sdk/provider-utils@npm:2.1.8"
   dependencies:
-    "@ai-sdk/provider": 1.0.3
+    "@ai-sdk/provider": 1.0.7
     eventsource-parser: ^3.0.0
     nanoid: ^3.3.8
     secure-json-parse: ^2.7.0
@@ -30,25 +30,25 @@ __metadata:
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 656fb618c5955b4a3216ab0cbc67c2d7d0ae2c848c5ba13756f4e4db8944a0f02efe3eab5fe9dda1648e8c8d2b28781a89c15a033875ec3b77890a274e65df1a
+  checksum: 3d4651ec95a320b8da1e61b506e7866582966eccb339e335b57bc20cce331d5364711af8d1dc94a3e2f82808b2bdef2f957460c2dfffd98a9fcc348567db2bf8
   languageName: node
   linkType: hard
 
-"@ai-sdk/provider@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@ai-sdk/provider@npm:1.0.3"
+"@ai-sdk/provider@npm:1.0.7":
+  version: 1.0.7
+  resolution: "@ai-sdk/provider@npm:1.0.7"
   dependencies:
     json-schema: ^0.4.0
-  checksum: fbb0ef7ad9bfc026a38fcc4aa911cffb4c4c6356bccdf8016e0246a09fa1505a0be532fe78e0bdc0f9574b136a878178dfb65bfac9de2dd9ba9a290593759274
+  checksum: 724be1a85cc8250ef67663e1f6df3c294aa5353e22780a2cd1f5b156b1ef602c18e7c6dbd2459cd5ae08578c80aaec35e80a8bcebef8ee57d413a9ffa6962abd
   languageName: node
   linkType: hard
 
-"@ai-sdk/react@npm:1.0.7":
-  version: 1.0.7
-  resolution: "@ai-sdk/react@npm:1.0.7"
+"@ai-sdk/react@npm:1.1.16":
+  version: 1.1.16
+  resolution: "@ai-sdk/react@npm:1.1.16"
   dependencies:
-    "@ai-sdk/provider-utils": 2.0.5
-    "@ai-sdk/ui-utils": 1.0.6
+    "@ai-sdk/provider-utils": 2.1.8
+    "@ai-sdk/ui-utils": 1.1.14
     swr: ^2.2.5
     throttleit: 2.1.0
   peerDependencies:
@@ -59,23 +59,23 @@ __metadata:
       optional: true
     zod:
       optional: true
-  checksum: ec4f95b7f25f97a9eaf56af21331170a7b821d92c4112a6e837739456424527b2d5dd3407971f6613b38da27a3b704d061e1240c9b4b20a7f041838842a9e594
+  checksum: e60c341d12d3d1fab39282f2e0e2565c2fb5adf005c834bf23d0c8a5bfacdead7438838d4a7e3c90e4423f028993b41dd2b71b97319f5f6bf43bd6f79029579e
   languageName: node
   linkType: hard
 
-"@ai-sdk/ui-utils@npm:1.0.6":
-  version: 1.0.6
-  resolution: "@ai-sdk/ui-utils@npm:1.0.6"
+"@ai-sdk/ui-utils@npm:1.1.14":
+  version: 1.1.14
+  resolution: "@ai-sdk/ui-utils@npm:1.1.14"
   dependencies:
-    "@ai-sdk/provider": 1.0.3
-    "@ai-sdk/provider-utils": 2.0.5
-    zod-to-json-schema: ^3.23.5
+    "@ai-sdk/provider": 1.0.7
+    "@ai-sdk/provider-utils": 2.1.8
+    zod-to-json-schema: ^3.24.1
   peerDependencies:
     zod: ^3.0.0
   peerDependenciesMeta:
     zod:
       optional: true
-  checksum: 9f76b8cfa1062eca041b2fcd70673e10d80dfd5299ca2d153896012da0b3c7cd4b8aac083b2bbec97e757f4a9da3b9bd35010f0b1ed6a5e6f1dbd5c675f6c01f
+  checksum: 0ad59c91a71edceceb7eb6559aaa572a116a60e1ad84d027256f9825cf8826943b87844a277da51ed654894c7e1a3260bef759005faacbcf24b257c91afe1292
   languageName: node
   linkType: hard
 
@@ -3910,17 +3910,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ai@npm:^4.0.22":
-  version: 4.0.22
-  resolution: "ai@npm:4.0.22"
+"ai@npm:^4.1.41":
+  version: 4.1.41
+  resolution: "ai@npm:4.1.41"
   dependencies:
-    "@ai-sdk/provider": 1.0.3
-    "@ai-sdk/provider-utils": 2.0.5
-    "@ai-sdk/react": 1.0.7
-    "@ai-sdk/ui-utils": 1.0.6
+    "@ai-sdk/provider": 1.0.7
+    "@ai-sdk/provider-utils": 2.1.8
+    "@ai-sdk/react": 1.1.16
+    "@ai-sdk/ui-utils": 1.1.14
     "@opentelemetry/api": 1.9.0
     jsondiffpatch: 0.6.0
-    zod-to-json-schema: ^3.23.5
   peerDependencies:
     react: ^18 || ^19 || ^19.0.0-rc
     zod: ^3.0.0
@@ -3929,7 +3928,7 @@ __metadata:
       optional: true
     zod:
       optional: true
-  checksum: bc185dfaa4d054853f1237489b9232625407eebc2891eb0e8a0fda7a5c37d4b154848a096d4236a182c974dac8afa75297177eb83e184738f76ca6d2797b2d7c
+  checksum: 952c01274cbd86f9077391246ca53a7f3dd36c4cb2035033c08822e3279e72f467658e98fb750428850291f9e24f019e6816685033d37d0e7ca10c92aa6ddaf8
   languageName: node
   linkType: hard
 
@@ -4839,7 +4838,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "german-companion-desktop@workspace:."
   dependencies:
-    "@ai-sdk/openai": ^1.0.11
+    "@ai-sdk/openai": ^1.1.12
     "@nextui-org/react": ^2.6.10
     "@redux-devtools/extension": ^3.3.0
     "@tailwindcss/typography": ^0.5.15
@@ -4854,12 +4853,12 @@ __metadata:
     "@types/react": ^18.3.1
     "@types/react-dom": ^18.3.1
     "@vitejs/plugin-react": ^4.3.4
-    ai: ^4.0.22
+    ai: ^4.1.41
     autoprefixer: ^10.4.20
     cheerio: ^1.0.0
     framer-motion: ^11.15.0
     motion: ^11.15.0
-    openai: ^4.77.0
+    openai: ^4.85.1
     postcss: ^8.4.49
     react: ^18.3.1
     react-dom: ^18.3.1
@@ -6248,9 +6247,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openai@npm:^4.77.0":
-  version: 4.77.0
-  resolution: "openai@npm:4.77.0"
+"openai@npm:^4.85.1":
+  version: 4.85.1
+  resolution: "openai@npm:4.85.1"
   dependencies:
     "@types/node": ^18.11.18
     "@types/node-fetch": ^2.6.4
@@ -6260,13 +6259,16 @@ __metadata:
     formdata-node: ^4.3.2
     node-fetch: ^2.6.7
   peerDependencies:
+    ws: ^8.18.0
     zod: ^3.23.8
   peerDependenciesMeta:
+    ws:
+      optional: true
     zod:
       optional: true
   bin:
     openai: bin/cli
-  checksum: e311130e3b35a7dc924e7125cca3246b7ac958b3c451f2f4ef2cae72144c82429f9c6db7bf67059fc9e10f3911087ebf8a9a4b2919ac915235ed3c324897b146
+  checksum: 064187106f08289ba177fe9ba4b3dc9a8622aa60cdc1fadd9da0fe88d67645189b448e0fa2dc987da4a252e023b3f1216115e333f2f4fc779dc703ae77e07f4a
   languageName: node
   linkType: hard
 
@@ -7625,7 +7627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod-to-json-schema@npm:^3.23.5":
+"zod-to-json-schema@npm:^3.24.1":
   version: 3.24.1
   resolution: "zod-to-json-schema@npm:3.24.1"
   peerDependencies:
