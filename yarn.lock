@@ -4858,7 +4858,7 @@ __metadata:
     cheerio: ^1.0.0
     framer-motion: ^11.15.0
     motion: ^11.15.0
-    openai: ^4.85.1
+    openai: ^4.86.2
     postcss: ^8.4.49
     react: ^18.3.1
     react-dom: ^18.3.1
@@ -6247,9 +6247,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openai@npm:^4.85.1":
-  version: 4.85.1
-  resolution: "openai@npm:4.85.1"
+"openai@npm:^4.86.2":
+  version: 4.86.2
+  resolution: "openai@npm:4.86.2"
   dependencies:
     "@types/node": ^18.11.18
     "@types/node-fetch": ^2.6.4
@@ -6268,7 +6268,7 @@ __metadata:
       optional: true
   bin:
     openai: bin/cli
-  checksum: 064187106f08289ba177fe9ba4b3dc9a8622aa60cdc1fadd9da0fe88d67645189b448e0fa2dc987da4a252e023b3f1216115e333f2f4fc779dc703ae77e07f4a
+  checksum: e03fd59c8f92c63db4b02dd67f62ca4b0c18373f6982fc73acfbf2f2b6de391fa1aaa3f0f4a8ac0e28bf16db3499bdc1ee53cc597678505e60b61eb191e3ef18
   languageName: node
   linkType: hard
 
