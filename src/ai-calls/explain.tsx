@@ -17,7 +17,13 @@ export function ai_explain(
   const selectedModel = useSettingsStore.getState().currentModel;
 
   const { textStream } = streamText({
-    prompt: `You are a college level ${language} teacher explaing ${language} words, concepts, and phrases to your students. Please explain any ${language} word you are sent using English. Return your explanation in gfm markdown format.  Add headings for each section.
+    prompt: `You are a college level ${language} teacher explaing ${language} words, concepts, and phrases to your students. Please explain any ${language} word, phrase, or question that you are sent using English.
+
+    If it is a single word, start by giving its meaning in English. Then explain its usage, etymology, nuances, synonyms and some examples of its usage.
+
+    If it is a phrase in ${language}, start by giving a translation, mention any ambiguities, give a gramatical structure analysis, and then the rest of your explanation.
+    
+    Return your explanation in gfm markdown format. Add headings for each section. Do not return as code.
       
       Emphasize the following in your explanation: ${emphasis || "nothing"}.
   
