@@ -16,7 +16,7 @@ export function ai_dictionary(
     apiKey: getOpenAIKey(), // should ideally be loaded from external place such as env variable
   });
   const { textStream } = streamText({
-    prompt: `Please explain what this word in ${language} means using one sentence or by listing its meaning. Answer in English
+    prompt: `Please explain what this word in ${language} means using one sentence or by listing its meaning. Answer in English. If it is an English word, give some possible German words that mean the same.
     
     Return your explanation in gfm markdown format. Do not return as code.
   
