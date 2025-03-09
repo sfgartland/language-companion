@@ -12,6 +12,7 @@ import { SelectionButtonsGroup } from "./SelectionButtonsGroup";
 import { DictSearchBar } from "./DictSearchBar";
 import { PONSEntry } from "./PONSEntry";
 import { DUDEN_Entry } from "./DUDENEntry";
+import { AIDictionaryComponent } from "./AIDictionaryComponent";
 
 function PONSEntries({
   entries,
@@ -54,6 +55,7 @@ export function DictionaryComponent() {
   return (
     <div className="flex flex-col w-full h-full p-10 mb-10 bg-white">
       <DictSearchBar />
+      <AIDictionaryComponent/> {/* TODO problem with it disapearing when skeleton and entries are loaded */}
       <div className="flex flex-col">
         {entries ? (
           <>

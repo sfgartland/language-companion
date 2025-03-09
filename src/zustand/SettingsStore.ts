@@ -11,6 +11,8 @@ interface SettingsState {
   developerMode: boolean;
   showHiddenSettings: boolean;
   enabledDictionary: boolean;
+  fastAIDictionary: boolean;
+  setFastAIDictionary: (fast: boolean) => void;
   setEnabledDictionary: (enabled: boolean) => void;
   setShowHiddenSettings: (show: boolean) => void;
   setDeveloperMode: (mode: boolean) => void;
@@ -42,6 +44,8 @@ const useSettingsStore = create<SettingsState>()(
       developerMode: false,
       showHiddenSettings: false,
       enabledDictionary: false,
+      fastAIDictionary: false,
+      setFastAIDictionary: (fast) => set({ fastAIDictionary: fast }),
       setEnabledDictionary: (enabled) => set({ enabledDictionary: enabled }),
       setShowHiddenSettings: (show) => set({ showHiddenSettings: show }),
       setDeveloperMode: (mode) => {

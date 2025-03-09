@@ -21,7 +21,7 @@ import { LanguageManager } from "./LanguageManager";
 export const SettingsModal = () => {
   const { isSettingsOpen, setSettingsOpen } = useUIStateStore();
 
-  const { apiKey, setApiKey, developerMode, setDeveloperMode, showHiddenSettings, setShowHiddenSettings, enabledDictionary, setEnabledDictionary } =
+  const { fastAIDictionary, setFastAIDictionary, apiKey, setApiKey, developerMode, setDeveloperMode, showHiddenSettings, setShowHiddenSettings, enabledDictionary, setEnabledDictionary } =
     useSettingsStore();
 
   const { foundUpdate, checkingForUpdates } = useUpdaterUIState();
@@ -105,6 +105,12 @@ export const SettingsModal = () => {
                   <td>AI Model</td>
                   <td className="flex justify-end">
                     <ModelSelector />
+                  </td>
+                </tr>
+                <tr className="*:py-5">
+                  <td>Fast AI Dictionary (uses gpt-4o-mini)</td>
+                  <td className="flex justify-end">
+                    <Switch isSelected={fastAIDictionary} onValueChange={setFastAIDictionary} />
                   </td>
                 </tr>
               </tbody>

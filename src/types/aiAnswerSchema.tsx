@@ -14,6 +14,12 @@ export const explanationSchema = z.string();
 
 export type ExplanationSchema = z.infer<typeof explanationSchema>
 
+// ---------------------------------------
+
+export const aiDictionarySchema = z.string();
+
+export type aiDictionarySchema = z.infer<typeof explanationSchema>
+
 //****************************************************//
 
 export type AnyAnswerSchema = CorrectionSchema | ExplanationSchema;

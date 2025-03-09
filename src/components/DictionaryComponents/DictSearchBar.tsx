@@ -56,7 +56,7 @@ export function DictSearchBar({disabled} : {disabled?: boolean}) {
     const doIHaveGlobalSelection = globalSelection && globalSelection.length > 0;
   
     return (
-      <div className="flex flex-col mb-10">
+      <div className="flex flex-col">
         <div className={`my-3`}>
           <Button
             onPress={handleGlobalSelectionSubmit}
