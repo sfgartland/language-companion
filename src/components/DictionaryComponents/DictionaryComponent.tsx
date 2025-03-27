@@ -65,18 +65,18 @@ export function DictionaryComponent() {
       <DictSearchBar />
       <AIDictionaryComponent />{" "}
       {/* TODO problem with it disapearing when skeleton and entries are loaded */}
-      {isDisabled || (
+      {isDisabled ? (
         <div className="flex flex-col items-center prose mt-10">
           <p className="prose">
             <i>PONS and DUDEN dictionary is disabled in the web version</i>
           </p>
         </div>
-      )}
+      ): null}
       <div className="flex flex-col">
         {entries ? (
           <>
             <div className="mb-10">
-              {isDisabled || (
+              {isDisabled ? null : (
                 <SelectionButtonsGroup
                   searchResults={searchResults}
                   currResult={selectedResult || undefined}
