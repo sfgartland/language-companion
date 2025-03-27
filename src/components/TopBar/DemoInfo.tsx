@@ -16,10 +16,10 @@ export const DemoInfo = () => {
   
     return (
       <div>
-        <p className="prose">
+        {/* <p className="prose">
           <i>You are currently in demo mode!</i> Add a API key to unlock all
           features.
-        </p>
+        </p> */}
         <span ref={scope}>
           <Tooltip content="Add your own API key to allow for more requests">
             <div

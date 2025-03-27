@@ -36,7 +36,15 @@ export function DictionaryPlaceholderComponent() {
       <DictSearchBar disabled />
       <div className="flex flex-col prose">
         <h3>Dictionary is disabled in the distributed version</h3>
-        <p>The dictionary is currently only available in German and uses unofficial APIs, therefore I cannot include it in the distributed version of this software. <br/> <br/><i>If you know of any official dictionary APIs, please let me know so that they can be implemented.</i></p>
+        <p>
+          The dictionary is currently only available in German and uses
+          unofficial APIs, therefore I cannot include it in the distributed
+          version of this software. <br /> <br />
+          <i>
+            If you know of any official dictionary APIs, please let me know so
+            that they can be implemented.
+          </i>
+        </p>
       </div>
     </div>
   );
@@ -46,25 +54,35 @@ export function DictionaryComponent() {
   const { searchResults, selectedResult, entries, selectResult, getEntries } =
     useDictionaryStore();
 
-  useEffect(() => {}, []);
+  const isDisabled = import.meta.env.VITE_IS_WEB_VERSION;
 
   useEffect(() => {
-    getEntries();
+    if (!isDisabled) getEntries();
   }, [selectedResult]);
 
   return (
     <div className="flex flex-col w-full h-full p-10 mb-10 bg-white">
       <DictSearchBar />
-      <AIDictionaryComponent/> {/* TODO problem with it disapearing when skeleton and entries are loaded */}
+      <AIDictionaryComponent />{" "}
+      {/* TODO problem with it disapearing when skeleton and entries are loaded */}
+      {isDisabled || (
+        <div className="flex flex-col items-center prose mt-10">
+          <p className="prose">
+            <i>PONS and DUDEN dictionary is disabled in the web version</i>
+          </p>
+        </div>
+      )}
       <div className="flex flex-col">
         {entries ? (
           <>
             <div className="mb-10">
-              <SelectionButtonsGroup
-                searchResults={searchResults}
-                currResult={selectedResult || undefined}
-                selectResult={selectResult}
-              />
+              {isDisabled || (
+                <SelectionButtonsGroup
+                  searchResults={searchResults}
+                  currResult={selectedResult || undefined}
+                  selectResult={selectResult}
+                />
+              )}
             </div>
             {entries.map((ent, i) => {
               if ((ent as DUDEN_DictEntry).api == "duden")
