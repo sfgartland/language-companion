@@ -10,7 +10,7 @@ export const setInputAndGetResponse = (
   input: string,
   emphasis?: string
 ) => {
-  const modeState = getModeState(mode);
+  const modeState = useModeState(mode).getState();
 
   modeState.setInput(input);
   if (emphasis) {
@@ -20,11 +20,11 @@ export const setInputAndGetResponse = (
   modeState.getResponse();
 };
 
-export const getModeState = (mode: AssistantMode) => {
+export const useModeState = (mode: AssistantMode) => {
   if (mode == AssistantMode.CorrectText) {
-    return useCorrectionState.getState();
+    return useCorrectionState;
   } else if (mode == AssistantMode.Explanation) {
-    return useExplanationState.getState();
+    return useExplanationState;
   } else {
     throw Error("Something is very wrong, too many modes added??");
   }
@@ -32,7 +32,7 @@ export const getModeState = (mode: AssistantMode) => {
 
 export const universalModeSubmitHandler = (submitMode: AssistantMode) => {
   const uiState = useUIStateStore.getState();
-  const currentModeState = getModeState(uiState.mode)
+  const currentModeState = useModeState(uiState.mode).getState()
 
 
   if (submitMode !== uiState.mode) {

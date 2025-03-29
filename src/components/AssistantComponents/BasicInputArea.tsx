@@ -3,31 +3,32 @@ import { Textarea } from "@nextui-org/input";
 import { KeyboardEvent } from "react";
 import { ActionButton } from "@/components/AssistantComponents/ActionButton";
 import { AssistantMode } from "@/zustand/UIState";
-import { universalModeSubmitHandler } from "@/lib/StateHelpers";
+import { useModeState, universalModeSubmitHandler } from "@/lib/StateHelpers";
 
 export function BasicInputArea({
   label,
-  question,
-  emphasis,
-  setEmphasis,
-  setQuestion,
-  submitAction,
+
+  currentMode,
 }: {
   label: string;
-  question: string;
-  setQuestion: (v: string) => void;
-  submitAction: () => void;
-  emphasis?: string;
-  setEmphasis?: (v: string) => void;
+  currentMode: AssistantMode;
 }) {
+  const {
+    input,
+    setInput,
+    emphasis,
+    setEmphasis,
+    getResponse,
+  } =  useModeState(currentMode)();
+  console.log(currentMode)
+
   const handleKeySubmit = (e: KeyboardEvent) => {
-    console.log(e.code)
-    if (e.code === "Enter" && e.ctrlKey && question != "") submitAction();
-    if (e.code === "KeyE" && e.ctrlKey && question != "") {
-      universalModeSubmitHandler(AssistantMode.Explanation)
+    if (e.code === "Enter" && e.ctrlKey && input != "") getResponse();
+    if (e.code === "KeyE" && e.ctrlKey && input != "") {
+      universalModeSubmitHandler(AssistantMode.Explanation);
     }
-    if (e.code === "KeyK" && e.ctrlKey && question != "") {
-      universalModeSubmitHandler(AssistantMode.CorrectText)
+    if (e.code === "KeyK" && e.ctrlKey && input != "") {
+      universalModeSubmitHandler(AssistantMode.CorrectText);
     }
   };
 
@@ -38,8 +39,8 @@ export function BasicInputArea({
         label={label}
         name="input"
         // placeholder=""
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeySubmit}
         className="mb-5"
       />
@@ -57,7 +58,7 @@ export function BasicInputArea({
         />
       ) : null}
       <div className="w-full">
-        <ActionButton />
+        <ActionButton currentMode={currentMode} />
       </div>
     </div>
   );

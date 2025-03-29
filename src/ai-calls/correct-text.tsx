@@ -6,16 +6,16 @@ import useSettingsStore from "@/zustand/SettingsStore";
 export function correctSentence(
   inputSentence: string,
   language: string,
-  emphasis?: string
+  emphasis?: string,
+  abortSignal?: AbortSignal
 ): AsyncIterable<Partial<CorrectionSchema>> {
-
   authenticateRequest();
 
   const selectedModel = useSettingsStore.getState().currentModel;
   const openai = createOpenAI({
     apiKey: getOpenAIKey(), // should ideally be loaded from external place such as env variable
   });
-  
+
   const { partialObjectStream } = streamObject({
     schema: correctionSchema,
     prompt: `
@@ -34,6 +34,7 @@ export function correctSentence(
     providerOptions: {
       openai: { reasoningEffort: "medium" },
     },
+    abortSignal: abortSignal,
   });
 
   return partialObjectStream;

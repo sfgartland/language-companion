@@ -7,7 +7,8 @@ import { streamText } from "ai";
 export function ai_explain(
   input: string,
   language: string,
-  emphasis?: string
+  emphasis?: string,
+  abortSignal?: AbortSignal
 ): AsyncIterable<string> {
   authenticateRequest();
 
@@ -30,6 +31,7 @@ export function ai_explain(
       Explain: ${input}
       `,
     model: openai(selectedModel),
+    abortSignal: abortSignal,
   });
 
   return textStream;
