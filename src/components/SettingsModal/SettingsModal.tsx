@@ -9,7 +9,7 @@ import {
   Switch,
 } from "@nextui-org/react";
 
-import {app} from "@tauri-apps/api"
+import { app } from "@tauri-apps/api";
 
 import { ModelSelector } from "./ModelSelector";
 import useSettingsStore from "@/zustand/SettingsStore";
@@ -21,8 +21,18 @@ import { LanguageManager } from "./LanguageManager";
 export const SettingsModal = () => {
   const { isSettingsOpen, setSettingsOpen } = useUIStateStore();
 
-  const { fastAIDictionary, setFastAIDictionary, apiKey, setApiKey, developerMode, setDeveloperMode, showHiddenSettings, setShowHiddenSettings, enabledDictionary, setEnabledDictionary } =
-    useSettingsStore();
+  const {
+    fastAIDictionary,
+    setFastAIDictionary,
+    apiKey,
+    setApiKey,
+    developerMode,
+    setDeveloperMode,
+    showHiddenSettings,
+    setShowHiddenSettings,
+    enabledDictionary,
+    setEnabledDictionary,
+  } = useSettingsStore();
 
   const { foundUpdate, checkingForUpdates } = useUpdaterUIState();
 
@@ -33,35 +43,33 @@ export const SettingsModal = () => {
   const [keyInput, setKeyInput] = useState(apiKey);
 
   useEffect(() => {
-    const findVersion = async () => {
-      const version = await app.getVersion();
-      setCurrentVersion(version);
+    if (import.meta.env.VITE_IS_WEB_VERSION !== "true") {
+      const findVersion = async () => {
+        const version = await app.getVersion();
+        setCurrentVersion(version);
+      };
+
+      findVersion();
     }
-
-    findVersion();
-
-  }, [])
+  }, []);
 
   const handleMichClick = () => {
     const now = new Date();
     const newTimestamps = [...michClicks, now];
-    
+
     // Remove timestamps older than 5 seconds
     const recentTimestamps = newTimestamps.filter(
       (timestamp) => now.getTime() - timestamp.getTime() <= 5000
     );
 
-    if(recentTimestamps.length >= 5) {
-      console.log("Toggling hidden settings!")
+    if (recentTimestamps.length >= 5) {
+      console.log("Toggling hidden settings!");
       setShowHiddenSettings(!showHiddenSettings);
       setMichClicks([]);
     } else {
       setMichClicks(recentTimestamps);
     }
-
-
-
-  }
+  };
 
   return (
     <Modal
@@ -110,7 +118,10 @@ export const SettingsModal = () => {
                 <tr className="*:py-5">
                   <td>Fast AI Dictionary (uses gpt-4o-mini)</td>
                   <td className="flex justify-end">
-                    <Switch isSelected={fastAIDictionary} onValueChange={setFastAIDictionary} />
+                    <Switch
+                      isSelected={fastAIDictionary}
+                      onValueChange={setFastAIDictionary}
+                    />
                   </td>
                 </tr>
               </tbody>
@@ -121,7 +132,12 @@ export const SettingsModal = () => {
             <LanguageManager />
           </div>
           <div className="flex flex-col">
-            <h3 className="text-xl border-b mb-5 mt-8" onClick={handleMichClick}>Miscellaneous</h3>
+            <h3
+              className="text-xl border-b mb-5 mt-8"
+              onClick={handleMichClick}
+            >
+              Miscellaneous
+            </h3>
             <table className="table-auto">
               <tbody>
                 <tr className="*:py-3">
@@ -131,9 +147,7 @@ export const SettingsModal = () => {
                   </td>
                 </tr>
                 <tr className="*:py-3">
-                  <td>
-                    Current version
-                  </td>
+                  <td>Current version</td>
                   <td>{currentVersion || "Loading..."}</td>
                 </tr>
                 <tr className="*:py-3">
@@ -170,11 +184,12 @@ export const SettingsModal = () => {
                     <table className="table-auto">
                       <tbody>
                         <tr className="*:py-3">
-                          <td className="w-full">
-                            Enable dictionary
-                          </td>
+                          <td className="w-full">Enable dictionary</td>
                           <td>
-                            <Switch isSelected={enabledDictionary} onValueChange={setEnabledDictionary} />
+                            <Switch
+                              isSelected={enabledDictionary}
+                              onValueChange={setEnabledDictionary}
+                            />
                           </td>
                         </tr>
 
